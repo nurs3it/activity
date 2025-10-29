@@ -85,7 +85,7 @@ export default function ProjectsPage() {
           comparison = a.open_issues_count - b.open_issues_count
           break
         case "updated":
-          comparison = new Date(a.last_activity_at).getTime() - new Date(b.last_activity_at).getTime()
+          comparison = new Date(a.updated_at).getTime() - new Date(b.updated_at).getTime()
           break
       }
 

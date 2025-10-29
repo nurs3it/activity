@@ -89,7 +89,10 @@ export default function CommitsHeatmapPage() {
   const weekdayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   const monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-  const selectedDayCommits = selectedDay?.commits || []
+  const selectedDayCommits = useMemo(() => {
+    return selectedDay?.commits || []
+  }, [selectedDay])
+
   const selectedProject = useMemo(() => {
     if (!selectedDay) return null
     const projectIds = new Set(selectedDayCommits.map((c) => c.projectId))
